@@ -1,11 +1,9 @@
 package ru.rsatu.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-@Entity
+@Entity(name = "group_def")
+@Table(name = "group_def")
 public class Group {
 
     @Id
@@ -13,9 +11,12 @@ public class Group {
     @Column(name = "id")
     private long id;
 
+    @Column(name = "coach_id")
     private long coachId;
 
+    @Column(name = "group_type")
     private String groupType;
 
-    private long subscriptionDuration;
+    @Column(name = "subscription_visit_pool")
+    private long subscriptionVisitPool;
 }

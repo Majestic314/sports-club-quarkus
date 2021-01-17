@@ -3,7 +3,8 @@ package ru.rsatu.model;
 import javax.persistence.*;
 import java.util.Date;
 
-@Entity
+@Entity(name = "subscription")
+@Table(name = "subscription")
 public class Subscription {
 
     @Id
@@ -11,11 +12,17 @@ public class Subscription {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "client_id")
-    private long clientId;
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "client_id")
+    private Client client;
 
-    @Column(name = "group_id")
-    private long groupId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "group_id")
+    private Group group;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "manager_id")
+    private Manager manager;
 
     @Column(name = "valid_from_date")
     private Date validFromDate;
@@ -25,5 +32,4 @@ public class Subscription {
 
     @Column(name = "visits_left")
     private long visitsLeft;
-
 }

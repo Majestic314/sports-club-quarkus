@@ -17,7 +17,6 @@ public class GroupService {
 
     public GetGroupList getGroupList() {
         GetGroupList result = new GetGroupList();
-        //Query query = entityManager.createNativeQuery("select * from group_def");
         Query query = entityManager.createQuery("select gd from group_def gd");
         List<Group> groupList = query.getResultList();
 

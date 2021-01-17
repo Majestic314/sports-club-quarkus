@@ -17,8 +17,5 @@ public class GetGroupList {
 
     public void setGroupList(List<Group> groupList) {
         this.groupList = groupList;
-//        for (Group group : groupList) {
-//            this.groupList.add((Group) group);
-//        }
     }
 }

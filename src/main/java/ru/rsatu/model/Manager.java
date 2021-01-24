@@ -1,7 +1,6 @@
 package ru.rsatu.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity(name = "manager")
 @Table(name = "manager")
@@ -21,6 +20,35 @@ public class Manager {
     @Column(name = "patronymic")
     private String patronymic;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "manager")
-    private Collection<Subscription> issuedSubscriptions;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getPatronymic() {
+        return patronymic;
+    }
+
+    public void setPatronymic(String patronymic) {
+        this.patronymic = patronymic;
+    }
 }

@@ -1,7 +1,6 @@
 package ru.rsatu.model;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity(name = "group_def")
 @Table(name = "group_def")
@@ -22,6 +21,35 @@ public class Group {
     @Column(name = "subscription_visit_pool")
     private long subscriptionVisitPool;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "group")
-    private Collection<Subscription> subscriptions;
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Coach getCoach() {
+        return coach;
+    }
+
+    public void setCoach(Coach coach) {
+        this.coach = coach;
+    }
+
+    public String getGroupType() {
+        return groupType;
+    }
+
+    public void setGroupType(String groupType) {
+        this.groupType = groupType;
+    }
+
+    public long getSubscriptionVisitPool() {
+        return subscriptionVisitPool;
+    }
+
+    public void setSubscriptionVisitPool(long subscriptionVisitPool) {
+        this.subscriptionVisitPool = subscriptionVisitPool;
+    }
 }

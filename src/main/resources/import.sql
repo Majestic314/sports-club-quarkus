@@ -11,6 +11,8 @@ INSERT INTO coach (id, last_name, first_name, patronymic)
 VALUES (2, 'Петров', 'Петр', 'Петрович');
 INSERT INTO coach (id, last_name, first_name, patronymic)
 VALUES (3, 'Иванов', 'Иван', 'Иванович');
+INSERT INTO coach (id, last_name, first_name, patronymic)
+VALUES (4, 'Михайлов', 'Михаил', 'Михайлович');
 
 -- Manager
 INSERT INTO manager (id, last_name, first_name, patronymic)
@@ -25,6 +27,8 @@ INSERT INTO group_def (id, group_type, subscription_visit_pool, coach_id)
 VALUES (2, 'Группа 2', 10, 2);
 INSERT INTO group_def (id, group_type, subscription_visit_pool, coach_id)
 VALUES (3, 'Группа 3', 8, 3);
+INSERT INTO group_def (id, group_type, subscription_visit_pool, coach_id)
+VALUES (4, 'Группа 4', 12, null);
 
 -- Subscription
 INSERT INTO subscription (id, client_id, manager_id, group_id, visits_left)

@@ -37,7 +37,7 @@ public class RestGate {
         } catch (Exception ex) {
             logger.error(ex.getMessage());
         }
-        return Response.ok(result).build();
+        return Response.ok(result.getGroupList()).build();
     }
 
     /**

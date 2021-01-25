@@ -18,8 +18,14 @@ public class Group {
     @Column(name = "group_type")
     private String groupType;
 
+    @Column(name = "description")
+    private String description;
+
     @Column(name = "subscription_visit_pool")
     private long subscriptionVisitPool;
+
+    @Column(name = "subscription_price")
+    private long subscriptionPrice;
 
     public long getId() {
         return id;
@@ -45,11 +51,27 @@ public class Group {
         this.groupType = groupType;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public long getSubscriptionVisitPool() {
         return subscriptionVisitPool;
     }
 
     public void setSubscriptionVisitPool(long subscriptionVisitPool) {
         this.subscriptionVisitPool = subscriptionVisitPool;
+    }
+
+    public long getSubscriptionPrice() {
+        return subscriptionPrice;
+    }
+
+    public void setSubscriptionPrice(long subscriptionPrice) {
+        this.subscriptionPrice = subscriptionPrice;
     }
 }

@@ -3,6 +3,14 @@ INSERT INTO client (id, last_name, first_name, patronymic, phone_number)
 VALUES (1, 'Петрушкин', 'Василий', 'Николаевич', '8-800-555-35-35');
 INSERT INTO client (id, last_name, first_name, patronymic, phone_number)
 VALUES (2, 'Васечкин', 'Мыкола', 'Батькович', '8-920-666-18-48');
+INSERT INTO client (id, last_name, first_name, patronymic, phone_number)
+VALUES (3, 'Волосков', 'Николай', 'Филиппович', '8-999-322-28-11');
+INSERT INTO client (id, last_name, first_name, patronymic, phone_number)
+VALUES (4, 'Шепелявенко', 'Лев', 'Львович', '8-666-231-65-55');
+INSERT INTO client (id, last_name, first_name, patronymic, phone_number)
+VALUES (5, 'Святозаров', 'Мстислав', 'Владимирович', '8-988-777-14-44');
+INSERT INTO client (id, last_name, first_name, patronymic, phone_number)
+VALUES (6, 'Цветкова', 'Мария', 'Вячеславовна', '8-912-911-88-55');
 
 -- Coach
 INSERT INTO coach (id, last_name, first_name, patronymic)
@@ -39,3 +47,11 @@ INSERT INTO subscription (id, client_id, manager_id, group_id, visits_left)
 VALUES (1, 1, 1, 2, 7);
 INSERT INTO subscription (id, client_id, manager_id, group_id, visits_left)
 VALUES (2, 2, 2, 2, 5);
+INSERT INTO subscription (id, client_id, manager_id, group_id, visits_left)
+VALUES (3, 3, 1, 3, 11);
+INSERT INTO subscription (id, client_id, manager_id, group_id, visits_left)
+VALUES (4, 4, 2, 1, 2);
+INSERT INTO subscription (id, client_id, manager_id, group_id, visits_left)
+VALUES (5, 5, 1, 5, 12);
+INSERT INTO subscription (id, client_id, manager_id, group_id, visits_left)
+VALUES (6, 6, 1, 3, 4);

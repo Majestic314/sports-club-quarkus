@@ -2,6 +2,7 @@ package ru.rsatu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.rsatu.model.request.SaveVisitsRequest;
 import ru.rsatu.model.response.GetClientList;
 import ru.rsatu.model.response.GetCoachList;
 import ru.rsatu.model.response.GetGroupList;
@@ -71,6 +72,7 @@ public class RestGate {
 
     /**
      * Метод для вывода всех клиентов, занимающихся у данного тренера.
+     * @param coachId id тренера
      */
     @GET
     @RolesAllowed("coach")
@@ -104,4 +106,20 @@ public class RestGate {
         return Response.ok(result).build();
     }
 
+    /**
+     * Метод для вычета посещений у клиентов.
+     * @param request список клиентов
+     */
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/saveVisits")
+    public Response saveVisits(SaveVisitsRequest request) {
+        try {
+            subscriptionService.saveVisits(request.getClients());
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+        }
+        return Response.ok().build();
+    }
 }

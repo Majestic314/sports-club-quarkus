@@ -93,6 +93,7 @@ public class RestGate {
      * Метод для вывода всех подписок.
      */
     @GET
+    @RolesAllowed("manager")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getSubscriptionList")
@@ -103,7 +104,7 @@ public class RestGate {
         } catch (Exception ex) {
             logger.error(ex.getMessage());
         }
-        return Response.ok(result).build();
+        return Response.ok(result.getSubscriptionList()).build();
     }
 
     /**
@@ -111,6 +112,7 @@ public class RestGate {
      * @param request список клиентов
      */
     @POST
+    @RolesAllowed("coach")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/saveVisits")

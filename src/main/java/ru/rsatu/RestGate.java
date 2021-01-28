@@ -2,11 +2,9 @@ package ru.rsatu;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import ru.rsatu.model.request.SaveCoachRequest;
 import ru.rsatu.model.request.SaveVisitsRequest;
-import ru.rsatu.model.response.GetClientList;
-import ru.rsatu.model.response.GetCoachList;
-import ru.rsatu.model.response.GetGroupList;
-import ru.rsatu.model.response.GetSubscriptionList;
+import ru.rsatu.model.response.*;
 import ru.rsatu.services.ClientService;
 import ru.rsatu.services.CoachService;
 import ru.rsatu.services.GroupService;
@@ -56,7 +54,7 @@ public class RestGate {
      * Метод для вывода всех тренеров.
      */
     @GET
-    @RolesAllowed("coach")
+    @RolesAllowed({"coach", "manager"})
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/getCoachList")
@@ -123,5 +121,24 @@ public class RestGate {
             logger.error(ex.getMessage());
         }
         return Response.ok().build();
+    }
+
+    /**
+     * Метод сохранения нового тренера.
+     * @param request новый тренер
+     */
+    @POST
+    @RolesAllowed("manager")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/saveCoach")
+    public Response saveCoach(SaveCoachRequest request) {
+        SaveCoachResponse result = null;
+        try {
+            result = coachService.saveCoach(request.getCoach());
+        } catch (Exception ex) {
+            logger.error(ex.getMessage());
+        }
+        return Response.ok(result).build();
     }
 }
